@@ -1,15 +1,78 @@
 import { Link } from "wouter";
-import { ArrowRight, Shield, Zap, Globe, Lock } from "lucide-react";
+import { ArrowRight, Shield, Zap, Globe, Lock, Layers, Repeat, Wallet, Gift, UserCheck, ShoppingCart, RefreshCcw, ZapIcon, Download, Smartphone, LayoutGrid, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
+  const actions = [
+    {
+      icon: <Layers className="w-6 h-6 text-primary" />,
+      title: "Staking",
+      description: "Stake your assets to earn rewards with high APY secure pools."
+    },
+    {
+      icon: <Repeat className="w-6 h-6 text-primary" />,
+      title: "Bridge",
+      description: "Transfer assets between different blockchains seamlessly."
+    },
+    {
+      icon: <Wallet className="w-6 h-6 text-primary" />,
+      title: "Connect Wallet",
+      description: "Link your Web3 wallet to access dapps securely."
+    },
+    {
+      icon: <Gift className="w-6 h-6 text-primary" />,
+      title: "Claim",
+      description: "Check eligibility and claim your airdrop rewards."
+    },
+    {
+      icon: <UserCheck className="w-6 h-6 text-primary" />,
+      title: "KYC",
+      description: "Complete identity verification for regulatory compliance."
+    },
+    {
+      icon: <ShoppingCart className="w-6 h-6 text-primary" />,
+      title: "BUY",
+      description: "Purchase crypto assets directly using fiat currency."
+    },
+    {
+      icon: <RefreshCcw className="w-6 h-6 text-primary" />,
+      title: "Swap/Exchange",
+      description: "Instant token swaps with the best market rates."
+    },
+    {
+      icon: <ZapIcon className="w-6 h-6 text-primary" />,
+      title: "Wallet Glitch",
+      description: "Fix synchronization errors and connection issues."
+    },
+    {
+      icon: <Download className="w-6 h-6 text-primary" />,
+      title: "Airdrop",
+      description: "Participate in new token distribution events."
+    },
+    {
+      icon: <Smartphone className="w-6 h-6 text-primary" />,
+      title: "NFT",
+      description: "View, manage and trade your NFT collections."
+    },
+    {
+      icon: <LayoutGrid className="w-6 h-6 text-primary" />,
+      title: "Rectification",
+      description: "Resolve transaction failures and stuck nonces."
+    },
+    {
+      icon: <CheckCircle2 className="w-6 h-6 text-primary" />,
+      title: "Validation",
+      description: "Validate your wallet and transaction history."
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col">
+    <div className="min-h-screen bg-[#0a0b0d] text-foreground flex flex-col">
       {/* Navigation */}
-      <nav className="border-b border-white/5 bg-background/50 backdrop-blur-lg fixed w-full z-50">
+      <nav className="border-b border-white/5 bg-[#0a0b0d]/50 backdrop-blur-lg fixed w-full z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary to-purple-500 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary to-blue-500 flex items-center justify-center">
               <Zap className="w-5 h-5 text-white fill-current" />
             </div>
             <span className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70">
@@ -31,10 +94,10 @@ export default function Home() {
       <main className="flex-grow pt-20">
         <div className="relative overflow-hidden">
           {/* Background Gradients */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-primary/20 rounded-full blur-[120px] -z-10 pointer-events-none opacity-50"></div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-primary/10 rounded-full blur-[120px] -z-10 pointer-events-none opacity-50"></div>
           
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-sm animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
               <span className="text-sm font-medium text-white/80">Protocol V2 is Live</span>
             </div>
@@ -62,30 +125,26 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Features Grid */}
+        {/* Action Grid */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <FeatureCard 
-              icon={<Shield className="w-8 h-8 text-primary" />}
-              title="Secure Encryption"
-              description="End-to-end encryption for all data transmission ensures your assets remain safe at all times."
-            />
-            <FeatureCard 
-              icon={<Globe className="w-8 h-8 text-purple-500" />}
-              title="Universal Access"
-              description="Compatible with over 100+ different cryptocurrency wallets and decentralized applications."
-            />
-            <FeatureCard 
-              icon={<Lock className="w-8 h-8 text-green-500" />}
-              title="Private & Anonymous"
-              description="No registration required. We don't store personal data. Your privacy is our priority."
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {actions.map((action, index) => (
+              <Link key={index} href="/wallet">
+                <div className="p-8 rounded-2xl bg-[#111318] border border-white/5 hover:border-primary/20 transition-all duration-300 hover:bg-[#161921] group cursor-pointer h-full">
+                  <div className="mb-6 p-3 rounded-xl bg-[#1a1d26] w-fit group-hover:scale-110 transition-transform duration-300">
+                    {action.icon}
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-white">{action.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm">{action.description}</p>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-white/5 py-12 bg-black/20">
+      <footer className="border-t border-white/5 py-12 bg-black/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2 opacity-50">
             <Zap className="w-5 h-5" />
@@ -94,18 +153,6 @@ export default function Home() {
           <p className="text-sm text-muted-foreground">© 2024 SyncyNode Protocol. All rights reserved.</p>
         </div>
       </footer>
-    </div>
-  );
-}
-
-function FeatureCard({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) {
-  return (
-    <div className="p-8 rounded-2xl bg-card/50 border border-white/5 hover:border-primary/20 transition-all duration-300 hover:bg-card/80 group">
-      <div className="mb-4 p-3 rounded-lg bg-white/5 w-fit group-hover:scale-110 transition-transform duration-300">
-        {icon}
-      </div>
-      <h3 className="text-xl font-bold mb-3">{title}</h3>
-      <p className="text-muted-foreground leading-relaxed">{description}</p>
     </div>
   );
 }
