@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development tsx server/index.ts",
     "build": "cross-env NODE_ENV=production tsx script/build.ts",
-    "build:functions": "esbuild netlify/functions/api.ts --bundle --platform=node --target=node20 --outfile=netlify/functions/api.js --external:express",
     "postbuild": "npm run build:functions",
     "start": "cross-env NODE_ENV=production node dist/index.cjs",
     "check": "tsc",
