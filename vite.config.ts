@@ -30,6 +30,10 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      // <-- Add this block to ignore Netlify import
+      external: ["netlify/functions/api"],
+    },
   },
   server: {
     fs: {
