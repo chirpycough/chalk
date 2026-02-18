@@ -17,7 +17,7 @@ export default function Wallets() {
             <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary to-purple-500 flex items-center justify-center">
               <Zap className="w-5 h-5 text-white fill-current" />
             </div>
-            <span className="font-bold text-lg hidden sm:block">SyncyNode</span>
+            <span className="font-bold text-lg hidden sm:block">Vaultlink</span>
           </div>
 
           <div className="w-24"></div> {/* Spacer for centering */}

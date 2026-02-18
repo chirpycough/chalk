@@ -76,7 +76,7 @@ export default function Home() {
               <Zap className="w-5 h-5 text-white fill-current" />
             </div>
             <span className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70">
-              SyncyNode
+              VAULTLINK
             </span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
