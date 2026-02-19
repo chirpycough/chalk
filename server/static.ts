@@ -3,8 +3,8 @@ import fs from "fs";
 import path from "path";
 
 export function serveStatic(app: Express) {
-  // where Vite outputs the built frontend
-  const distPath = path.join(__dirname, "public");
+  // point to the REAL build folder
+  const distPath = path.resolve(process.cwd(), "server/public");
 
   if (!fs.existsSync(distPath)) {
     throw new Error(
@@ -12,10 +12,10 @@ export function serveStatic(app: Express) {
     );
   }
 
-  // serve static assets (css, js, images)
+  // serve static files
   app.use(express.static(distPath));
 
-  // SPA fallback — always return index.html for non-API routes
+  // SPA fallback
   app.get("*", (_req, res) => {
     res.sendFile(path.join(distPath, "index.html"));
   });
